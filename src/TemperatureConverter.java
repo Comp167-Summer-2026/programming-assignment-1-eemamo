@@ -3,24 +3,20 @@ import java.util.Scanner;
 public class TemperatureConverter {
     public static double convertTemperature (double temperature, String unit) {
         double convertedTemp = 0.0;
-        if (unit.equalsIgnoreCase("F")) {
+        if (unit.equals("F")) {
             convertedTemp = (temperature - 32) * (5.0 / 9.0);
         }
-        else if (unit.equalsIgnoreCase("C")) {
-            convertedTemp = (temperature * (9.0 / 5.0)) + 32;
+        else if (unit.equals("C")) {
+            convertedTemp = temperature * (9.0 / 5.0) + 32;
         }
         return convertedTemp;
-    }
-
-    public static double convertTemperature (double temperature, char unit) {
-        return convertTemperature(temperature, String.valueOf(unit));
     }
 
     public static void main (String [] args) {
         Scanner scnr = new Scanner (System.in);
         String tempOrStop = "Hi";
-        double convertedTemp;
-        int i;
+        double convertedTemp = 0.0;
+        int i = 0;
 
         while (!tempOrStop.equals("stop")) {
             System.out.print("Please enter a temperature or type \"stop\" to quit: ");
@@ -68,18 +64,24 @@ public class TemperatureConverter {
                     System.out.print("Please enter the unit (type \"C\" or \"F\"): ");
                     String unit = scnr.next();
 
-                    while (!unit.equalsIgnoreCase("C") && !unit.equalsIgnoreCase("F")) {
-                        System.out.println("Error");
-                        System.out.print("Please enter the unit (type \"C\" or \"F\"): ");
+                    while (!unit.equals("C") && !unit.equals("F")) {
+                        System.out.println("Error! You have typed an invalid unit. Please try again.");
+                        System.out.println("Please enter the unit (type \"C\" or \"F\"): ");
                         unit = scnr.next();
                     }
 
                     convertedTemp = convertTemperature(temperature, unit);
 
-                    if (unit.equalsIgnoreCase("C")) {
-                        System.out.printf("%.2f\u00B0C is equal to %.2f\u00B0F%n", temperature, convertedTemp);
+                    if (unit.equals("C")) {
+                        System.out.printf("%.2f", temperature);
+                        System.out.print("\u00B0C is equal to ");
+                        System.out.printf("%.2f", convertedTemp);
+                        System.out.println("\u00B0F");
                     } else {
-                        System.out.printf("%.2f\u00B0F is equal to %.2f\u00B0C%n", temperature, convertedTemp);
+                        System.out.printf("%.2f", temperature);
+                        System.out.print("\u00B0F is equal to ");
+                        System.out.printf("%.2f", convertedTemp);
+                        System.out.println("\u00B0C");
                     }
                 } else {
                     System.out.println("Error! You have typed an invalid temperature input. Please try again.");
