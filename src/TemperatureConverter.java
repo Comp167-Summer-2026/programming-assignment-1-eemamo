@@ -65,8 +65,8 @@ public class TemperatureConverter {
                     String unit = scnr.next();
 
                     while (!unit.equals("C") && !unit.equals("F")) {
-                        System.out.println("Error: You have typed an invalid unit. Please try again.");
-                        System.out.println("Please enter the unit (type \"C\" or \"F\"): ");
+                        System.out.println("Error");
+                        System.out.print("Please enter the unit (type \"C\" or \"F\"): ");
                         unit = scnr.next();
                     }
 
@@ -84,7 +84,7 @@ public class TemperatureConverter {
                         System.out.println("°C");
                     }
                 } else {
-                    System.out.println("Error: You have typed an invalid temperature input. Please try again.");
+                    System.out.println("Error! You have typed an invalid temperature input. Please try again.");
                 }
             }
         }
@@ -92,4 +92,3 @@ public class TemperatureConverter {
         scnr.close();
     }
 }
-
