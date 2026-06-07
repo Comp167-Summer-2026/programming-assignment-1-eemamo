@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class TemperatureConverter {
     public static double convertTemperature (double temperature, String unit) {
         double convertedTemp = 0.0;
-        if (unit.equals("F")) {
+        if (unit.equalsIgnoreCase("F")) {
             convertedTemp = (temperature - 32) * (5.0 / 9.0);
         }
-        else if (unit.equals("C")) {
+        else if (unit.equalsIgnoreCase("C")) {
             convertedTemp = temperature * (9.0 / 5.0) + 32;
         }
         return convertedTemp;
