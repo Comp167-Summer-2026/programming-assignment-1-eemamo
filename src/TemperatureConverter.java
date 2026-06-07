@@ -15,8 +15,8 @@ public class TemperatureConverter {
     public static void main (String [] args) {
         Scanner scnr = new Scanner (System.in);
         String tempOrStop = "Hi";
-        double convertedTemp = 0.0;
-        int i = 0;
+        double convertedTemp;
+        int i;
 
         while (!tempOrStop.equals("stop")) {
             System.out.print("Please enter a temperature or type \"stop\" to quit: ");
@@ -65,7 +65,7 @@ public class TemperatureConverter {
                     String unit = scnr.next();
 
                     while (!unit.equals("C") && !unit.equals("F")) {
-                        System.out.println("Error! You have typed an invalid unit. Please try again.");
+                        System.out.println("Error: You have typed an invalid unit. Please try again.");
                         System.out.println("Please enter the unit (type \"C\" or \"F\"): ");
                         unit = scnr.next();
                     }
@@ -84,7 +84,7 @@ public class TemperatureConverter {
                         System.out.println("°C");
                     }
                 } else {
-                    System.out.println("Error! You have typed an invalid temperature input. Please try again.");
+                    System.out.println("Error: You have typed an invalid temperature input. Please try again.");
                 }
             }
         }
