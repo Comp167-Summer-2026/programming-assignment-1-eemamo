@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class TemperatureConverter {
     public static double convertTemperature (double temperature, String unit) {
         double convertedTemp = 0.0;
-        if (unit.equals("F")) {
+        if (unit.equalsIgnoreCase("F")) {
             convertedTemp = (temperature - 32) * (5.0 / 9.0);
         }
-        else if (unit.equals("C")) {
-            convertedTemp = temperature * (9.0 / 5.0) + 32;
+        else if (unit.equalsIgnoreCase("C")) {
+            convertedTemp = (temperature * (9.0 / 5.0)) + 32;
         }
         return convertedTemp;
     }
@@ -64,7 +64,7 @@ public class TemperatureConverter {
                     System.out.print("Please enter the unit (type \"C\" or \"F\"): ");
                     String unit = scnr.next();
 
-                    while (!unit.equals("C") && !unit.equals("F")) {
+                    while (!unit.equalsIgnoreCase("C") && !unit.equalsIgnoreCase("F")) {
                         System.out.println("Error");
                         System.out.print("Please enter the unit (type \"C\" or \"F\"): ");
                         unit = scnr.next();
@@ -72,16 +72,10 @@ public class TemperatureConverter {
 
                     convertedTemp = convertTemperature(temperature, unit);
 
-                    if (unit.equals("C")) {
-                        System.out.printf("%.2f", temperature);
-                        System.out.print("°C is equal to ");
-                        System.out.printf("%.2f", convertedTemp);
-                        System.out.println("°F");
+                    if (unit.equalsIgnoreCase("C")) {
+                        System.out.printf("%.2f°C is equal to %.2f°F%n", temperature, convertedTemp);
                     } else {
-                        System.out.printf("%.2f", temperature);
-                        System.out.print("°F is equal to ");
-                        System.out.printf("%.2f", convertedTemp);
-                        System.out.println("°C");
+                        System.out.printf("%.2f°F is equal to %.2f°C%n", temperature, convertedTemp);
                     }
                 } else {
                     System.out.println("Error! You have typed an invalid temperature input. Please try again.");
